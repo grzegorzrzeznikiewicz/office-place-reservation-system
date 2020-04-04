@@ -16,7 +16,6 @@ services:
         restart: on-failure
         volumes:
             - symfony-docker-app-sync:/var/www/html:nocopy
-            - symfony-docker-vendor-sync:/var/www/html/vendor:nocopy
         environment:
             PHP_IDE_CONFIG: ${PHP_IDE_CONFIG}
             TZ: Europe/Warsaw
@@ -36,7 +35,6 @@ services:
         volumes:
             - ./docker/nginx/default.conf:/etc/nginx/conf.d/default.conf:ro
             - symfony-docker-app-sync:/var/www/html:nocopy
-            - symfony-docker-vendor-sync:/var/www/html/vendor:nocopy
         ports:
             - "${NGINX_PORT}:80"
         depends_on:
@@ -49,6 +47,4 @@ services:
 
 volumes:
     symfony-docker-app-sync:
-        external: true
-    symfony-docker-vendor-sync:
         external: true
