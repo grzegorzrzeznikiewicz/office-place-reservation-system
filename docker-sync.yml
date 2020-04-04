@@ -9,12 +9,5 @@ syncs:
         sync_host_port: 20871
         sync_userid: '33'
         sync_args: '-prefer newer -copyonconflict'
-        sync_excludes: ["./var/cache", "./var/logs", "./var/sessions", "vendor", ".idea", ".git"]
-        notify_terminal: true
-    symfony-docker-vendor-sync:
-        src: './app/vendor/'
-        sync_strategy: 'rsync'
-        sync_args: '--delete'
-        sync_host_port: 20872
-        sync_excludes: ["bin/"]
+        sync_excludes: ["./var/cache", "./var/logs", "./var/sessions", ".idea", ".git"]
         notify_terminal: true
